@@ -41,6 +41,7 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 app.use(mongoSanitize());
+app.use(cors({ credentials: true }));
 
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
