@@ -12,8 +12,6 @@ const {
   updateUserPassword,
   transferUserBalance,
   updateBalance,
-  updateUserBalanceDeposit,
-  updateUserBalanceWithdrawal,
   updateUserWallet,
   validateUserTo,
 } = require("../controllers/userController");
@@ -28,12 +26,7 @@ router.route("/validateUserTo").post(authenticateUser, validateUserTo);
 router.route("/updateUser").patch(authenticateUser, updateUser);
 router.route("/updateUserPassword").patch(authenticateUser, updateUserPassword);
 router.route("/updateUserWallet").patch(authenticateUser, updateUserWallet);
-router
-  .route("/updateUserBalanceDeposit")
-  .patch(authenticateUser, updateUserBalanceDeposit);
-router
-  .route("/updateUserBalanceWithdrawal")
-  .patch(authenticateUser, updateUserBalanceWithdrawal);
+
 router
   .route("/transferUserBalance")
   .patch(authenticateUser, transferUserBalance);

@@ -73,23 +73,4 @@ const transactionTracker = async () => {
   });
 };
 
-// const withdrawalTracker = async () => {
-
-//   const contract = new ethers.Contract(bankAddress, BankABI, provider);
-//   contract.on("Withdrawal", (address, value) => {
-//     let info = {
-//       address: address,
-//       value: value,
-//     };
-
-//     // value: ethers.utils.formatUnits(value, 2)
-//     const amount = JSON.parse(info.value, null, 2);
-//     const wallet = info.address;
-
-//     updateBalanceOnWithdrawal(wallet, amount);
-//   });
-// };
-
-// transactionTracker();
-
 module.exports = { transactionTracker };

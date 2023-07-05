@@ -24,6 +24,7 @@ const getSingleUser = async (req, res) => {
 };
 
 const showCurrentUser = async (req, res) => {
+  console.log(req.user);
   res.status(StatusCodes.OK).json({ user: req.user });
 };
 // update user with user.save()
@@ -74,42 +75,15 @@ const updateUserWallet = async (req, res) => {
 
 const updateBalance = async (req, res) => {
   try {
+    console.log(req.user);
     const user = await User.findOne({ _id: req.user.userId }).select(
       "-password"
     );
-
+    console.log(user);
     res.status(StatusCodes.OK).json({ balance: user.balance });
   } catch (error) {
     console.log(error);
   }
-};
-
-const updateUserBalanceDeposit = async (req, res) => {
-  // const { value, wallet } = req.body;
-
-  // const user = await User.findOne({ _id: req.user.userId }).select("-password");
-  // user.balance = user.balance + parseInt(value);
-
-  // const balance = await Balance.findOne({ userId: req.user.userId });
-  // balance.balance = user.balance;
-
-  // if (user.wallet == "") {
-  //   user.wallet = wallet;
-  //   balance.wallet = wallet;
-  // }
-  // await balance.save();
-  // await user.save();
-  res.status(StatusCodes.OK).json({ msg: "Success! Deposit confirmed." });
-};
-
-const updateUserBalanceWithdrawal = async (req, res) => {
-  // const { value } = req.body;
-
-  // const user = await User.findOne({ _id: req.user.userId }).select("-password");
-  // user.balance = user.balance - parseInt(value);
-
-  // await user.save();
-  res.status(StatusCodes.OK).json({ msg: "Success! Withdrawal confirmed." });
 };
 
 const transferUserBalance = async (req, res) => {
@@ -241,26 +215,9 @@ module.exports = {
   showCurrentUser,
   updateUser,
   updateUserPassword,
-  updateUserBalanceDeposit,
-  updateUserBalanceWithdrawal,
+
   transferUserBalance,
   updateBalance,
   updateUserWallet,
   validateUserTo,
 };
-
-// update user with findOneAndUpdate
-// const updateUser = async (req, res) => {
-//   const { email, name } = req.body;
-//   if (!email || !name) {
-//     throw new CustomError.BadRequestError('Please provide all values');
-//   }
-//   const user = await User.findOneAndUpdate(
-//     { _id: req.user.userId },
-//     { email, name },
-//     { new: true, runValidators: true }
-//   );
-//   const tokenUser = createTokenUser(user);
-//   attachCookiesToResponse({ res, user: tokenUser });
-//   res.status(StatusCodes.OK).json({ user: tokenUser });
-// };

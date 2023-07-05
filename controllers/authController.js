@@ -38,11 +38,8 @@ const register = async (req, res) => {
     wallet,
     verificationToken,
   });
-  const balanceUser = createBalanceUser(user);
-  await Balance.create(balanceUser);
 
-  const origin = "http://localhost:3000";
-  // const newOrigin = 'https://react-node-user-workflow-front-end.netlify.app';
+  const origin = "https://ff-front-end.onrender.com";
 
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol;
@@ -156,7 +153,7 @@ const forgotPassword = async (req, res) => {
   if (user) {
     const passwordToken = crypto.randomBytes(70).toString("hex");
     // send email
-    const origin = "http://localhost:3000";
+    const origin = "https://ff-front-end.onrender.com";
     await sendResetPasswordEmail({
       name: user.name,
       email: user.email,

@@ -54,9 +54,6 @@ app.use("/api/v1/balances", balanceRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
-// app.use(depositTracker);
-// app.use(withdrawalTracker);
-// app.use(transactionTracker);
 
 const port = process.env.PORT || 4000;
 const start = async () => {
