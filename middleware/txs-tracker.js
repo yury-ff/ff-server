@@ -1,6 +1,5 @@
 const Balance = require("../models/Balance");
 const User = require("../models/User");
-const axios = require("axios");
 require("dotenv").config({ path: "../.env" });
 
 const ethers = require("ethers");
