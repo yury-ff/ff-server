@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("express-async-errors");
 const ethers = require("ethers");
+let cors = require("cors");
 
 // express
 
@@ -41,7 +42,7 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 app.use(mongoSanitize());
-app.use(cors({ credentials: true }));
+app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
