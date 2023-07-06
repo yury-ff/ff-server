@@ -16,6 +16,7 @@ const {
 const corsOptions = {
   origin: "https://ff-front-end.onrender.com",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  preflightContinue: true,
 };
 
 router.post("/register", register);
