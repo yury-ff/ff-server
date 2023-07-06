@@ -42,7 +42,11 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 app.use(mongoSanitize());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://ff-front-end.onrender.com",
+  })
+);
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
