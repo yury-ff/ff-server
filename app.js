@@ -21,9 +21,9 @@ const mongoSanitize = require("express-mongo-sanitize");
 const connectDB = require("./db/connect");
 
 //cors
-app.use(
-  cors({ credentials: true, origin: "https://ff-front-end.onrender.com" })
-);
+// app.use(
+//   cors({ credentials: true, origin: "https://ff-front-end.onrender.com" })
+// );
 
 // app.use(function (req, res, next) {
 //   res.header(
