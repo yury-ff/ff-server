@@ -25,17 +25,17 @@ app.use(
   cors({ credentials: true, origin: "https://ff-front-end.onrender.com" })
 );
 
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://ff-front-end.onrender.com"
-  ); // update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://ff-front-end.onrender.com"
+//   ); // update to match the domain you will make the request from
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 //  routers
 const authRouter = require("./routes/authRoutes");
@@ -56,7 +56,7 @@ app.use(
   })
 );
 app.use(helmet());
-app.use(cors());
+
 app.use(xss());
 app.use(mongoSanitize());
 

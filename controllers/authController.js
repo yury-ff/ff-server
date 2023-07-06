@@ -112,6 +112,11 @@ const login = async (req, res) => {
     }
     refreshToken = existingToken.refreshToken;
     attachCookiesToResponse({ res, user: tokenUser, refreshToken });
+    res.header(
+      "Access-Control-Allow-Origin",
+      "https://ff-front-end.onrender.com"
+    );
+    res.header("Access-Control-Allow-Credentials", "true");
     res.status(StatusCodes.OK).json({ user: tokenUser });
     return;
   }
