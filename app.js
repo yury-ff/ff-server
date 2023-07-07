@@ -23,10 +23,9 @@ const connectDB = require("./db/connect");
 //cors
 app.use(
   cors({
-    credentials: true,
     origin: "https://ff-front-end.onrender.com",
-    allowedHeaders: ["Content-Type", "Authorization"],
-    preflightContinue: true,
+    credentials: true,
+    // allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
