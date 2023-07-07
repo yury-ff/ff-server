@@ -112,8 +112,12 @@ const login = async (req, res) => {
     }
     refreshToken = existingToken.refreshToken;
     attachCookiesToResponse({ res, user: tokenUser, refreshToken });
-    res.set("Access-Control-Allow-Origin", "https://ff-front-end.onrender.com");
-    res.set("Access-Control-Allow-Credentials", "true");
+    res.set({
+      "Access-Control-Allow-Origin": "https://ff-front-end.onrender.com",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+    });
+
     res.status(StatusCodes.OK).json({ user: tokenUser });
     return;
   }
