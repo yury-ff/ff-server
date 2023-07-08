@@ -21,17 +21,17 @@ const mongoSanitize = require("express-mongo-sanitize");
 const connectDB = require("./db/connect");
 
 //cors
-// app.use(
-//   cors({
-//     // origin: "https://ff-front-end.onrender.com",
-//     origin: "http://localhost:3000",
-//     methods: "GET,PUT,POST",
-//     exposedHeaders: "Set-Cookie",
-//     credentials: true,
-//     allowedHeaders:
-//       "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Set-Cookie",
-//   })
-// );
+app.use(
+  cors({
+    // origin: "https://ff-front-end.onrender.com",
+    origin: "http://localhost:3000",
+    methods: "GET,PUT,POST",
+    exposedHeaders: "Set-Cookie",
+    credentials: true,
+    allowedHeaders:
+      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Set-Cookie",
+  })
+);
 
 // app.use(function (req, res, next) {
 //   res.header(
