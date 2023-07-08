@@ -20,6 +20,7 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     signed: true,
     domain: "https://ff-front-end.onrender.com",
     expires: new Date(Date.now() + oneDay),
+    sameSite: "none",
   });
 
   res.cookie("refreshToken", refreshTokenJWT, {
@@ -28,6 +29,7 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     signed: true,
     domain: "https://ff-front-end.onrender.com",
     expires: new Date(Date.now() + longerExp),
+    sameSite: "none",
   });
 };
 // const attachSingleCookieToResponse = ({ res, user }) => {
