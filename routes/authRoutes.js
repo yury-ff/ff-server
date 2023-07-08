@@ -24,7 +24,7 @@ const {
 // };
 
 router.post("/register", register);
-router.post("/login", cors(), login);
+// router.post("/login", cors(), login);
 // router.post("/login", login);
 
 router.delete("/logout", authenticateUser, logout);
