@@ -23,12 +23,12 @@ const connectDB = require("./db/connect");
 //cors
 app.use(
   cors({
-    origin: ".onrender.com",
+    origin: "https://ff-front-end.onrender.com",
     methods: "GET,PUT,POST",
     exposedHeaders: "Set-Cookie",
     credentials: true,
     allowedHeaders:
-      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept",
+      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Set-Cookie",
   })
 );
 
