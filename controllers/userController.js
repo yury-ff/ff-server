@@ -25,6 +25,8 @@ const getSingleUser = async (req, res) => {
 
 const showCurrentUser = async (req, res) => {
   console.log(req.user);
+  console.log(req);
+
   res.status(StatusCodes.OK).json({ user: req.user });
 };
 // update user with user.save()
