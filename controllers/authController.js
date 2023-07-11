@@ -118,6 +118,7 @@ const login = async (req, res) => {
     //   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
     // });
 
+    console.log(req);
     res.status(StatusCodes.OK).json({ user: tokenUser });
     return;
   }
