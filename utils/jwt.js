@@ -18,7 +18,6 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     signed: true,
-    name: value,
     domain: "onrender.com",
     expires: new Date(Date.now() + oneDay),
     sameSite: "none",
