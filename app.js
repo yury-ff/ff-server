@@ -25,11 +25,10 @@ app.use(
   cors({
     origin: "https://ff-front-end.onrender.com",
     // origin: "http://localhost:3000",
-    methods: "GET,PUT,POST",
-    exposedHeaders: "Set-Cookie",
+
+    exposedHeaders: "*",
     credentials: true,
-    allowedHeaders:
-      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Set-Cookie",
+    allowedHeaders: "*",
   })
 );
 
