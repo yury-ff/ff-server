@@ -18,7 +18,7 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     signed: true,
-    domain: "onrender.com",
+    domain: "https://onrender.com",
     expires: new Date(Date.now() + oneDay),
     sameSite: "none",
   });
@@ -27,7 +27,7 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     signed: true,
-    domain: "onrender.com",
+    domain: "https://onrender.com",
     expires: new Date(Date.now() + longerExp),
     sameSite: "none",
   });
