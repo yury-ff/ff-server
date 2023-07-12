@@ -23,7 +23,7 @@ const connectDB = require("./db/connect");
 //cors
 app.use(
   cors({
-    origin: "https://ff-front-end.onrender.com",
+    origin: ".onrender.com",
     // origin: "http://localhost:3000",
 
     exposedHeaders: "*",
