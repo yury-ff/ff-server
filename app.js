@@ -23,7 +23,7 @@ const connectDB = require("./db/connect");
 //cors
 app.use(
   cors({
-    origin: ".onrender.com",
+    origin: "forkedfinance.xyz",
     // origin: "http://localhost:3000",
 
     exposedHeaders: "*",
