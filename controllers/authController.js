@@ -39,7 +39,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "https://forkedfinance.xyz";
+  const origin = "https://ff-front-end.onrender.com";
 
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol;
