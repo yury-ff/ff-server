@@ -139,10 +139,14 @@ const logout = async (req, res) => {
 
   res.cookie("accessToken", "logout", {
     httpOnly: true,
+    domain: "forkedfinance.xyz",
+    sameSite: "none",
     expires: new Date(Date.now()),
   });
   res.cookie("refreshToken", "logout", {
     httpOnly: true,
+    domain: "forkedfinance.xyz",
+    sameSite: "none",
     expires: new Date(Date.now()),
   });
   res.status(StatusCodes.OK).json({ msg: "user logged out!" });
