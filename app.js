@@ -24,8 +24,6 @@ const connectDB = require("./db/connect");
 app.use(
   cors({
     origin: "https://forkedfinance.xyz",
-    // origin: "http://localhost:3000",
-
     exposedHeaders: "*",
     credentials: true,
     allowedHeaders: "*",

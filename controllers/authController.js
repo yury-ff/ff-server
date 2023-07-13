@@ -39,7 +39,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "https://ff-front-end.onrender.com";
+  const origin = "https://forkedfinance.xyz";
 
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol;
@@ -139,13 +139,13 @@ const logout = async (req, res) => {
 
   res.cookie("accessToken", "logout", {
     httpOnly: true,
-    domain: "forkedfinance.xyz",
+    domain: ".forkedfinance.xyz",
     sameSite: "none",
     expires: new Date(Date.now()),
   });
   res.cookie("refreshToken", "logout", {
     httpOnly: true,
-    domain: "forkedfinance.xyz",
+    domain: ".forkedfinance.xyz",
     sameSite: "none",
     expires: new Date(Date.now()),
   });
@@ -163,7 +163,7 @@ const forgotPassword = async (req, res) => {
   if (user) {
     const passwordToken = crypto.randomBytes(70).toString("hex");
     // send email
-    const origin = "https://ff-front-end.onrender.com";
+    const origin = "https://forkedfinance.xyz";
     await sendResetPasswordEmail({
       name: user.name,
       email: user.email,
