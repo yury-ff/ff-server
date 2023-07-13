@@ -39,7 +39,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "https://server.forkedfinance.xyz";
+  const origin = "https://forkedfinance.xyz";
 
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol;
