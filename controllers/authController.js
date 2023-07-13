@@ -112,11 +112,6 @@ const login = async (req, res) => {
     }
     refreshToken = existingToken.refreshToken;
     attachCookiesToResponse({ res, user: tokenUser, refreshToken });
-    // res.set({
-    //   "Access-Control-Allow-Origin": "https://ff-front-end.onrender.com",
-    //   "Access-Control-Allow-Credentials": "true",
-    //   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-    // });
 
     res.status(StatusCodes.OK).json({ user: tokenUser });
     return;
@@ -139,12 +134,14 @@ const logout = async (req, res) => {
 
   res.cookie("accessToken", "logout", {
     httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
     domain: "forkedfinance.xyz",
     sameSite: "none",
     expires: new Date(Date.now()),
   });
   res.cookie("refreshToken", "logout", {
     httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
     domain: "forkedfinance.xyz",
     sameSite: "none",
     expires: new Date(Date.now()),
