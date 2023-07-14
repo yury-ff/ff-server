@@ -10,11 +10,15 @@ const sendEmail = async ({ to, subject, html }) => {
     process.env.CLIENT_SECRET,
     "https://developers.google.com/oauthplayground"
   );
+  console.log(oauth2Client);
+
   console.log("setting credentials");
 
   oauth2Client.setCredentials({
     refresh_token: process.env.REFRESH_TOKEN,
   });
+  console.log(oauth2Client);
+
   console.log("creating access token");
 
   const accessToken = await new Promise((resolve, reject) => {
@@ -26,6 +30,8 @@ const sendEmail = async ({ to, subject, html }) => {
       resolve(token);
     });
   });
+  console.log(accessToken);
+
   console.log("creating transporter");
 
   const transporter = nodemailer.createTransport({
