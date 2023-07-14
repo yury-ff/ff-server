@@ -20,6 +20,7 @@ const sendEmail = async ({ to, subject, html }) => {
   const accessToken = await new Promise((resolve, reject) => {
     oauth2Client.getAccessToken((err, token) => {
       if (err) {
+        console.log(err);
         reject();
       }
       resolve(token);
