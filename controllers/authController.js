@@ -47,6 +47,7 @@ const register = async (req, res) => {
 
   const origin = "https://https://forkedfinance.xyz";
 
+  console.log(user.name, user.email);
   await sendVerificationEmail({
     name: user.name,
     email: user.email,

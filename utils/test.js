@@ -8,6 +8,7 @@ const email = "camper7771@gmail.com";
 
 const sendVerificationEmailTest = async () => {
   await sendVerificationEmail({ name: name, email: email });
+  console.log("hey");
 };
 
 sendVerificationEmailTest();
