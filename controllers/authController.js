@@ -39,17 +39,17 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "https://forkedfinance.xyz";
-
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol;
   // const host = req.get('host');
   // const forwardedHost = req.get('x-forwarded-host');
   // const forwardedProtocol = req.get('x-forwarded-proto');
 
+  const origin = "https://https://forkedfinance.xyz";
+
   await sendVerificationEmail({
-    // name: user.name,
-    // email: user.email,
+    name: user.name,
+    email: user.email,
     // verificationToken: user.verificationToken,
     // origin,
   });
