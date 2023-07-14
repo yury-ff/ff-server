@@ -1,54 +1,23 @@
-require("dotenv").config({ path: "../.env" });
-const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
-const nodemailer = require("nodemailer");
+const sendEmail = require("./sendEmail");
 
-const createTransporter = async () => {
-  const oauth2Client = new OAuth2(
-    process.env.CLIENT_ID,
-    process.env.CLIENT_SECRET,
-    "https://developers.google.com/oauthplayground"
-  );
+const origin = "https://ff-front-end.onrender.com";
+const name = "test";
+const verificationToken = "FakeToken";
+const email = "camper7771@gmail.com";
 
-  oauth2Client.setCredentials({
-    refresh_token: process.env.REFRESH_TOKEN,
-  });
+const sendVerificationEmail = async () => {
+  const verifyEmail = `${origin}/user/verify-email?token=${verificationToken}&email=${email}`;
 
-  const accessToken = await new Promise((resolve, reject) => {
-    oauth2Client.getAccessToken((err, token) => {
-      if (err) {
-        reject();
-      }
-      resolve(token);
-    });
-  });
+  const message = `<p>Please confirm your email by clicking on the following link : 
+  <a href="${verifyEmail}">Verify Email</a> </p>`;
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      type: "OAuth2",
-      user: process.env.EMAIL,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
-      accessToken,
-    },
-  });
-
-  return transporter;
-};
-
-const sendEmail = async () => {
-  let emailTransporter = await createTransporter();
-
-  return await emailTransporter.sendMail({
-    from: process.env.EMAIL,
-    to: "camper7771@gmail.com",
-    subject: "Message",
-    text: "I hope this message gets through!",
+  return sendEmail({
+    to: email,
+    subject: "Email Confirmation",
+    html: `<h4> Hello, ${name}</h4>
+    ${message}
+    `,
   });
 };
 
-sendEmail();
-
-module.exports = createTransporter;
+sendVerificationEmail();

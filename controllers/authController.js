@@ -39,7 +39,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "https://ff-front-end.onrender.com";
+  const origin = "https://forkedfinance.xyz/";
 
   // const tempOrigin = req.get('origin');
   // const protocol = req.protocol;
@@ -47,12 +47,12 @@ const register = async (req, res) => {
   // const forwardedHost = req.get('x-forwarded-host');
   // const forwardedProtocol = req.get('x-forwarded-proto');
 
-  await sendVerificationEmail({
-    name: user.name,
-    email: user.email,
-    verificationToken: user.verificationToken,
-    origin,
-  });
+  // await sendVerificationEmail({
+  //   name: user.name,
+  //   email: user.email,
+  //   verificationToken: user.verificationToken,
+  //   origin,
+  // });
   // send verification token back only while testing in postman!!!
   res.status(StatusCodes.CREATED).json({
     msg: "Success! Please check your email to verify account",
