@@ -6,8 +6,8 @@ const nodemailer = require("nodemailer");
 const sendEmail = async ({ to, subject, html }) => {
   console.log("creating OAuth client");
   const oauth2Client = new OAuth2(
-    process.env.CLIENT_ID,
-    process.env.CLIENT_SECRET,
+    process.env.CLIENT_ID_G,
+    process.env.CLIENT_SECRET_G,
     "https://developers.google.com/oauthplayground"
   );
   console.log(oauth2Client);
@@ -15,7 +15,7 @@ const sendEmail = async ({ to, subject, html }) => {
   console.log("setting credentials");
 
   oauth2Client.setCredentials({
-    refresh_token: process.env.REFRESH_TOKEN,
+    refresh_token: process.env.REFRESH_TOKEN_G,
   });
 
   console.log("creating access token");
@@ -45,9 +45,9 @@ const sendEmail = async ({ to, subject, html }) => {
       type: "OAuth2",
       user: process.env.EMAIL,
       accessToken,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
+      clientId: process.env.CLIENT_ID_G,
+      clientSecret: process.env.CLIENT_SECRET_G,
+      refreshToken: process.env.REFRESH_TOKEN_G,
     },
   });
   console.log("sending transport email");
