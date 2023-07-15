@@ -31,12 +31,6 @@ const sendEmail = async ({ to, subject, html }) => {
   });
   console.log(accessToken);
 
-  console.log("setting credentials");
-
-  oauth2Client.setCredentials({
-    accessToken,
-  });
-
   console.log("creating transporter");
 
   const transporter = nodemailer.createTransport({
