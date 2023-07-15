@@ -17,7 +17,6 @@ const sendEmail = async ({ to, subject, html }) => {
   oauth2Client.setCredentials({
     refresh_token: process.env.REFRESH_TOKEN,
   });
-  console.log(oauth2Client);
 
   console.log("creating access token");
 
@@ -31,6 +30,12 @@ const sendEmail = async ({ to, subject, html }) => {
     });
   });
   console.log(accessToken);
+
+  console.log("setting credentials");
+
+  oauth2Client.setCredentials({
+    accessToken,
+  });
 
   console.log("creating transporter");
 
