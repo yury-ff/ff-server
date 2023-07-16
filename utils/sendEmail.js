@@ -37,6 +37,9 @@ const sendEmail = async ({ to, subject, html }) => {
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
+    tls: {
+      rejectUnauthorized: false,
+    },
     auth: {
       type: "OAuth2",
       user: process.env.EMAIL,
