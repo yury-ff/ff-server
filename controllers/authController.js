@@ -45,14 +45,14 @@ const register = async (req, res) => {
   // const forwardedHost = req.get('x-forwarded-host');
   // const forwardedProtocol = req.get('x-forwarded-proto');
 
-  const origin = "https://https://forkedfinance.xyz";
+  const origin = "https://forkedfinance.xyz";
 
   console.log(user.name, user.email);
   await sendVerificationEmail({
     name: user.name,
     email: user.email,
-    // verificationToken: user.verificationToken,
-    // origin,
+    verificationToken: user.verificationToken,
+    origin,
   });
   console.log("email sent");
   // send verification token back only while testing in postman!!!
