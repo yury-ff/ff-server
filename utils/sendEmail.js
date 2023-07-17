@@ -52,7 +52,7 @@ const sendEmail = async ({ to, subject, html }) => {
   console.log("sending transport email");
 
   return transporter.sendMail({
-    from: '"Yury R" <yury.r@forkedfinance.xyz>', // sender address
+    from: "yury.r@forkedfinance.xyz", // sender address
     to,
     subject,
     text: `Hello`,
