@@ -37,13 +37,6 @@ const sendEmail = async ({ to, subject, html }) => {
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
-    // tls: {
-    //   rejectUnauthorized: false,
-    // },
-    // auth: {
-    //   user: process.env.EMAIL,
-    //   pass: process.env.EMAIL_PASS,
-    // },
 
     auth: {
       type: "OAuth2",
@@ -53,15 +46,11 @@ const sendEmail = async ({ to, subject, html }) => {
       clientSecret: process.env.CLIENT_SECRET_G,
       refreshToken: process.env.REFRESH_TOKEN_G,
     },
-    tls: {
-      // do not fail on invalid certs
-      rejectUnauthorized: false,
-    },
   });
   console.log("sending transport email");
 
   return transporter.sendMail({
-    from: "yury.r@forkedfinance.xyz", // sender address
+    from: '"Yury R" <yury.r@forkedfinance.xyz>', // sender address
     to,
     subject,
     html,
