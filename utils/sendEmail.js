@@ -55,7 +55,7 @@ const sendEmail = async ({ to, subject, html }) => {
     from: '"Yury R" <yury.r@forkedfinance.xyz>', // sender address
     to,
     subject,
-    text,
+    text: `Hello`,
     // html,
   });
 };
