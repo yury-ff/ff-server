@@ -40,6 +40,11 @@ const sendEmail = async ({ to, subject, html }) => {
     // tls: {
     //   rejectUnauthorized: false,
     // },
+    // auth: {
+    //   user: process.env.EMAIL,
+    //   pass: process.env.EMAIL_PASS,
+    // },
+
     auth: {
       type: "OAuth2",
       user: process.env.EMAIL,
@@ -47,6 +52,10 @@ const sendEmail = async ({ to, subject, html }) => {
       clientId: process.env.CLIENT_ID_G,
       clientSecret: process.env.CLIENT_SECRET_G,
       refreshToken: process.env.REFRESH_TOKEN_G,
+    },
+    tls: {
+      // do not fail on invalid certs
+      rejectUnauthorized: false,
     },
   });
   console.log("sending transport email");
@@ -57,6 +66,9 @@ const sendEmail = async ({ to, subject, html }) => {
     subject,
     text: `Hello`,
     // html,
+    auth: {
+      user: "yury.r@forkedfinance.xyz",
+    },
   });
 };
 
