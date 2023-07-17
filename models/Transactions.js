@@ -10,6 +10,9 @@ const TransactionSchema = new mongoose.Schema({
   amount: {
     type: String,
   },
+  date: {
+    type: Date,
+  },
 });
 
 module.exports = mongoose.model("Transaction", TransactionSchema);

@@ -1,6 +1,5 @@
 const Balance = require("../models/Balance");
 const { StatusCodes } = require("http-status-codes");
-const CustomError = require("../errors");
 
 const getAllBalances = async (req, res) => {
   const balances = await Balance.find({})

@@ -26,7 +26,7 @@ const getSingleUser = async (req, res) => {
 const showCurrentUser = async (req, res) => {
   res.status(StatusCodes.OK).json({ user: req.user });
 };
-// update user with user.save()
+
 const updateUser = async (req, res) => {
   const { email, name } = req.body;
   if (!email || !name) {
@@ -74,11 +74,10 @@ const updateUserWallet = async (req, res) => {
 
 const updateBalance = async (req, res) => {
   try {
-    console.log(req.user);
     const user = await User.findOne({ _id: req.user.userId }).select(
       "-password"
     );
-    console.log(user);
+
     res.status(StatusCodes.OK).json({ balance: user.balance });
   } catch (error) {
     console.log(error);
@@ -89,7 +88,9 @@ const transferUserBalance = async (req, res) => {
   const { value, email } = req.body;
 
   if (!value || value == 0) {
-    res.status(StatusCodes.BAD_REQUEST).json({ msg: "Zero is not a value" });
+    res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ msg: "No point in sending nothing..." });
     return;
   }
   const convertedValue = value * 10 ** 6;
