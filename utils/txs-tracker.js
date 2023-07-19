@@ -72,4 +72,4 @@ const transactionTracker = async () => {
   });
 };
 
-module.exports = { transactionTracker };
+module.exports = transactionTracker;

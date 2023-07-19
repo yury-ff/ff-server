@@ -38,7 +38,7 @@ const balanceRouter = require("./routes/balanceRoutes");
 
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
-const { transactionTracker } = require("./middleware/txs-tracker");
+const transactionTracker = require("./utils/txs-tracker");
 
 app.set("trust proxy", 1);
 app.use(
@@ -68,7 +68,7 @@ const port = process.env.PORT || 4000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
-    transactionTracker();
+    await transactionTracker();
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
