@@ -49,10 +49,10 @@ const updateUserWallet = async (req, res) => {
 
   const user = await User.findOne({ _id: req.user.userId }).select("-password");
   const balance = await Balance.findOne({ wallet: wallet });
-
-  if (user.wallet == "" || !user.wallet) {
+  if (!balance && (user.wallet == "" || !user.wallet)) {
     user.wallet = wallet;
-    user.balance = balance.balance;
+    const balanceUser = createBalanceUser(user);
+    await Balance.create(balanceUser);
     await user.save();
   }
 
@@ -62,10 +62,9 @@ const updateUserWallet = async (req, res) => {
     await user.save();
   }
 
-  if (!balance && (user.wallet == "" || !user.wallet)) {
+  if (user.wallet == "" || !user.wallet) {
     user.wallet = wallet;
-    const balanceUser = createBalanceUser(user);
-    await Balance.create(balanceUser);
+    user.balance = balance.balance;
     await user.save();
   }
 
