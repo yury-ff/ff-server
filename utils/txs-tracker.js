@@ -15,7 +15,7 @@ const provider = new ethers.providers.JsonRpcProvider(
 async function updateBalanceOnDeposit(wallet, value) {
   const balance = await Balance.findOne({ wallet: wallet });
   const user = await User.findOne({ wallet: wallet });
-
+  console.log("updating balance");
   if (!balance) {
     const newBalance = {
       wallet: wallet,
@@ -54,7 +54,7 @@ const transactionTracker = async () => {
       address: address,
       value: value,
     };
-
+    console.log("deposit recieved");
     const amount = JSON.parse(info.value, null, 2);
     const wallet = info.address;
 
