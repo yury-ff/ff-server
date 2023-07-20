@@ -46,6 +46,7 @@ async function updateBalanceOnWithdrawal(wallet, value) {
 }
 
 const transactionTracker = async () => {
+  console.log("listening for deposits and withdrawals");
   const contract = new ethers.Contract(bankAddress, BankABI, provider);
   contract.on("Deposit", (address, value) => {
     let info = {
