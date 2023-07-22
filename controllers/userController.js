@@ -56,12 +56,6 @@ const updateUserWallet = async (req, res) => {
     await user.save();
   }
 
-  if (!balance) {
-    const balanceUser = createBalanceUser(user);
-    await Balance.create(balanceUser);
-    await user.save();
-  }
-
   if (user.wallet == "" || !user.wallet) {
     user.wallet = wallet;
     user.balance = balance.balance;
