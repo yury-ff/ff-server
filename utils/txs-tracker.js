@@ -5,8 +5,6 @@ require("dotenv").config({ path: "../.env" });
 const ethers = require("ethers");
 const BankABI = require("../contracts/ForkedFinance.json");
 
-// import USDCABI from "../assets/USDCABI.json";
-
 const bankAddress = process.env.BANK_ADDRESS;
 const provider = new ethers.providers.JsonRpcProvider(
   `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`
