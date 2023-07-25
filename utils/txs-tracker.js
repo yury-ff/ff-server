@@ -7,7 +7,7 @@ const BankABI = require("../contracts/ForkedFinance.json");
 
 const bankAddress = process.env.BANK_ADDRESS;
 const provider = new ethers.providers.JsonRpcProvider(
-  `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`
+  `https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`
 );
 
 async function updateBalanceOnDeposit(wallet, value) {
@@ -45,6 +45,7 @@ async function updateBalanceOnWithdrawal(wallet, value) {
 
 const transactionTracker = async () => {
   const contract = new ethers.Contract(bankAddress, BankABI, provider);
+
   contract.on("Deposit", (address, value) => {
     let info = {
       address: address,
@@ -71,3 +72,5 @@ const transactionTracker = async () => {
 };
 
 module.exports = transactionTracker;
+
+transactionTracker();
