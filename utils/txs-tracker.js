@@ -47,6 +47,7 @@ const transactionTracker = async () => {
   const contract = new ethers.Contract(bankAddress, BankABI, provider);
 
   contract.on("Deposit", (address, value) => {
+    console.log("dep received");
     let info = {
       address: address,
       value: value,
